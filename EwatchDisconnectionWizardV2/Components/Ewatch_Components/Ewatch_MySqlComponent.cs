@@ -69,9 +69,9 @@ namespace EwatchDisconnectionWizardV2.Components.Ewatch_Components
                                     var TimeValue = Ewatch_MySqlMethod.Ai_Time(aiitem);//檢查發報數值是否達到
                                     if (TimeValue == null || TimeValue >= aiitem.TimeoutSpan)
                                     {
-                                        if (AiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
+                                        if (NewAiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
                                         {
-                                            AiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "斷線";
+                                            NewAiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "斷線";
                                             NotifyTypeEnum notifyTypeEnum = (NotifyTypeEnum)caseitem.NotifyTypeEnum;
                                             switch (notifyTypeEnum)
                                             {
@@ -95,14 +95,14 @@ namespace EwatchDisconnectionWizardV2.Components.Ewatch_Components
                                     }
                                     else
                                     {
-                                        AiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "斷線";
+                                        NewAiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "斷線";
                                     }
                                 }
                                 else
                                 {
-                                    if (AiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
+                                    if (NewAiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
                                     {
-                                        AiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "連線";
+                                        NewAiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "連線";
                                         Ewatch_MySqlMethod.UpdataAi_Time(aiitem, false);
                                     }
                                 }
@@ -112,17 +112,17 @@ namespace EwatchDisconnectionWizardV2.Components.Ewatch_Components
                                 //AiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "不使用";
                                 if (Ewatch_MySqlMethod.AI64Load(aiitem))//檢查即時數值是否超過時間
                                 {
-                                    if (AiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
+                                    if (NewAiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
                                     {
-                                        AiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "斷線";
+                                        NewAiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "斷線";
                                         //Ewatch_MySqlMethod.UpdataAi_Time(aiitem, true);
                                     }
                                 }
                                 else
                                 {
-                                    if (AiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
+                                    if (NewAiSettings.SingleOrDefault(g => g.PK == aiitem.PK) != null)
                                     {
-                                        AiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "連線";
+                                        NewAiSettings.Single(g => g.PK == aiitem.PK).ConnectionFlag = "連線";
                                         Ewatch_MySqlMethod.UpdataAi_Time(aiitem, false);
                                     }
                                 }
@@ -141,9 +141,9 @@ namespace EwatchDisconnectionWizardV2.Components.Ewatch_Components
                                     var TimeValue = Ewatch_MySqlMethod.ElectricMeter_Time(electricitem);
                                     if (TimeValue == null || TimeValue >= electricitem.TimeoutSpan)
                                     {
-                                        if (ElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
+                                        if (NewElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
                                         {
-                                            ElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "斷線";
+                                            NewElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "斷線";
                                             NotifyTypeEnum notifyTypeEnum = (NotifyTypeEnum)caseitem.NotifyTypeEnum;
                                             switch (notifyTypeEnum)
                                             {
@@ -167,14 +167,14 @@ namespace EwatchDisconnectionWizardV2.Components.Ewatch_Components
                                     }
                                     else
                                     {
-                                        ElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "斷線";
+                                        NewElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "斷線";
                                     }
                                 }
                                 else
                                 {
-                                    if (ElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
+                                    if (NewElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
                                     {
-                                        ElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "連線";
+                                        NewElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "連線";
                                         Ewatch_MySqlMethod.UpdataElectricMeter_Time(electricitem, false);
                                     }
                                 }
@@ -185,16 +185,16 @@ namespace EwatchDisconnectionWizardV2.Components.Ewatch_Components
                                 var TimeValue = Ewatch_MySqlMethod.ElectricMeter_Time(electricitem);
                                 if (TimeValue == null || TimeValue >= electricitem.TimeoutSpan)
                                 {
-                                    if (ElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
+                                    if (NewElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
                                     {
-                                        ElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "斷線";
+                                        NewElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "斷線";
                                     }
                                 }
                                 else
                                 {
-                                    if (ElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
+                                    if (NewElectricSettings.SingleOrDefault(g => g.PK == electricitem.PK) != null)
                                     {
-                                        ElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "連線";
+                                        NewElectricSettings.Single(g => g.PK == electricitem.PK).ConnectionFlag = "連線";
                                         Ewatch_MySqlMethod.UpdataElectricMeter_Time(electricitem, false);
                                     }
                                 }

@@ -22,8 +22,11 @@ namespace EwatchDisconnectionWizardV2.Views.ChungHsinUserControl
         private int markWidth = 16;
         private List<CaseSetting> CaseSettings { get; set; } = new List<CaseSetting>();
         private List<DeviceConfig> DeviceConfigs { get; set; } = new List<DeviceConfig>();
+        private ChungHsin_MySqlComponent ChungHsin_MySqlComponent { get; set; }
+
         public ChumgHsinConnectionUserControl(ChungHsin_MySqlComponent chungHsin_MySqlComponent)
         {
+            ChungHsin_MySqlComponent = chungHsin_MySqlComponent;
             CaseSettings = chungHsin_MySqlComponent.CaseSettings;
             ReceiveSettings = chungHsin_MySqlComponent.ReceiveSettings;
             DeviceConfigs = chungHsin_MySqlComponent.DeviceConfigs;
@@ -96,7 +99,7 @@ namespace EwatchDisconnectionWizardV2.Views.ChungHsinUserControl
         {
             if (xtraTabControl1.SelectedTabPageIndex == 0 )
             {
-                AigridControl.DataSource = ReceiveSettings;
+                AigridControl.DataSource = ChungHsin_MySqlComponent.ReceiveSettings;
                 AigridControl.Refresh();
             }
         }

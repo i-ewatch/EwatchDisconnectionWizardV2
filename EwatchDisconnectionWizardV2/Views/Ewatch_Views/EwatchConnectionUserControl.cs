@@ -21,12 +21,14 @@ namespace EwatchDisconnectionWizardV2.Views.Ewatch_Views
         private Color lowPriority = Color.Lime;
         private int markWidth = 16;
         private List<CaseSetting> CaseSettings { get; set; } = new List<CaseSetting>();
+        private Ewatch_MySqlComponent Ewatch_MySqlComponent { get; set; }
         /// <summary>
         /// 斷線偵測畫面
         /// </summary>
         /// <param name="ewatch_MySqlComponent">資料庫方法</param>
         public EwatchConnectionUserControl(Ewatch_MySqlComponent ewatch_MySqlComponent)
         {
+            Ewatch_MySqlComponent = ewatch_MySqlComponent;
             CaseSettings = ewatch_MySqlComponent.CaseSettings;
             AiSettings = ewatch_MySqlComponent.AiSettings;
             ElectricSettings = ewatch_MySqlComponent.ElectricSettings;
@@ -154,12 +156,12 @@ namespace EwatchDisconnectionWizardV2.Views.Ewatch_Views
         {
             if (xtraTabControl1.SelectedTabPageIndex == 0)
             {
-                AigridControl.DataSource = AiSettings;
+                AigridControl.DataSource = Ewatch_MySqlComponent.AiSettings;
                 AigridControl.Refresh();
             }
             else if (xtraTabControl1.SelectedTabPageIndex == 1)
             {
-                ElectricgridControl.DataSource = ElectricSettings;
+                ElectricgridControl.DataSource = Ewatch_MySqlComponent.ElectricSettings;
                 ElectricgridControl.Refresh();
             }
         }

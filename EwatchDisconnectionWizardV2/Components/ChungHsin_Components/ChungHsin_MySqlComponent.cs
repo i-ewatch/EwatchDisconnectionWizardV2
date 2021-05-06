@@ -68,9 +68,9 @@ namespace EwatchDisconnectionWizardV2.Components.ChungHsin_Components
                                     var TimeValue = ChungHsin_MySqlMethod.Receive_Time(Receiveitem);
                                     if (TimeValue == null || TimeValue >= Receiveitem.HTimeoutSpan)
                                     {
-                                        if (ReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
+                                        if (NewReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
                                         {
-                                            ReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "斷線";
+                                            NewReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "斷線";
                                             NotifyTypeEnum notifyTypeEnum = (NotifyTypeEnum)Caseitem.NotifyTypeEnum;
                                             switch (notifyTypeEnum)
                                             {
@@ -94,14 +94,14 @@ namespace EwatchDisconnectionWizardV2.Components.ChungHsin_Components
                                     }
                                     else
                                     {
-                                        ReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "斷線";
+                                        NewReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "斷線";
                                     }
                                 }
                                 else
                                 {
-                                    if (ReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
+                                    if (NewReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
                                     {
-                                        ReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "連線";
+                                        NewReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "連線";
                                         ChungHsin_MySqlMethod.UpdataReceive_Time(Receiveitem, false);
                                     }
                                 }
@@ -110,17 +110,17 @@ namespace EwatchDisconnectionWizardV2.Components.ChungHsin_Components
                             {
                                 if (ChungHsin_MySqlMethod.AI64Load(Receiveitem))
                                 {
-                                    if (ReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
+                                    if (NewReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
                                     {
-                                        ReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "斷線";
+                                        NewReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "斷線";
                                         //ChungHsin_MySqlMethod.UpdataReceive_Time(Receiveitem, true);
                                     }
                                 }
                                 else
                                 {
-                                    if (ReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
+                                    if (NewReceiveSettings.SingleOrDefault(g => g.PK == Receiveitem.PK) != null)
                                     {
-                                        ReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "連線";
+                                        NewReceiveSettings.Single(g => g.PK == Receiveitem.PK).ConnectionFlag = "連線";
                                         ChungHsin_MySqlMethod.UpdataReceive_Time(Receiveitem, false);
                                     }
                                 }
