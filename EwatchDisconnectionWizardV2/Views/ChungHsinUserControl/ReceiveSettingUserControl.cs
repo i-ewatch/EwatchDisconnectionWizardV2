@@ -43,6 +43,11 @@ namespace EwatchDisconnectionWizardV2.Views.ChungHsinUserControl
             var ReceiveSetting = ChungHsin_MySqlMethod.ReceiveLoad();
             gridControl1.DataSource = ReceiveSetting;
             var DeviceConfig = ChungHsin_MySqlMethod.DevicesLoad();
+            if (DeviceTypeEnumcomboBoxEdit.Properties.Items.Count>0)
+            {
+                DeviceTypeEnumcomboBoxEdit.Properties.Items.Clear();
+
+            }
             foreach (var item in DeviceConfig)
             {
                 DeviceTypeEnumcomboBoxEdit.Properties.Items.Add(item.DeviceName);

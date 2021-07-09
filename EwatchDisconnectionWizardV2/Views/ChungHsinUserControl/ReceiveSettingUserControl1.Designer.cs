@@ -158,7 +158,6 @@ namespace EwatchDisconnectionWizardV2.Views.ChungHsinUserControl
             // 
             // ReceiveNametextEdit
             // 
-            this.ReceiveNametextEdit.EditValue = "接收總名稱";
             this.ReceiveNametextEdit.Location = new System.Drawing.Point(139, 205);
             this.ReceiveNametextEdit.Name = "ReceiveNametextEdit";
             this.ReceiveNametextEdit.Properties.AllowFocused = false;
